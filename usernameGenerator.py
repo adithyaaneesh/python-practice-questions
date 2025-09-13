@@ -3,7 +3,10 @@ import random
 def username(firstname,lastname):
     username = []
     if firstname and lastname != 0:
+        symbol = '@'
+        # username = firstname + lastname + spcl
         username = firstname + lastname
+        username += str(random.choice(symbol))
         username += str(random.randint(10,99))
         return username
     
