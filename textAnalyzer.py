@@ -1,8 +1,13 @@
 #2. Create a Text Analyzer that counts words, characters, and sentences in a paragraph.
 
-text = "shecrafts@123"
+import re
+def textAnalyzer(paragraph):
+    character = len(paragraph)
+    word = len(paragraph.split())
+    sentence = len(re.split(r'[.?!]', paragraph))-1
+    print("characters", character)
+    print("words", word)
+    print("Sentences",sentence)
 
-
-#3. Design a Password Strength Checker that evaluates a given password.
-#4. Build a Number Guessing Game (random number 1–100, user keeps guessing until correct).
-#5. Design a Word Guessing (Hangman) game using a word list.
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+textAnalyzer(text)
