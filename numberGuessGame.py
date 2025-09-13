@@ -2,8 +2,8 @@
 
 import random
 def guessNumber():
-    # guessNum = random.randint(1,100)
-    guessNum = 34
+    guessNum = random.randint(1,100)
+    # guessNum = 34
     inputnum = 0
     attempts = 0
     print("WELCOME TO NUMBER GUESSING GAME")
@@ -20,4 +20,3 @@ def guessNumber():
             print(f"Attempts taken: {attempts}")
 guessNumber()
 
-#5. Design a Word Guessing (Hangman) game using a word list.
