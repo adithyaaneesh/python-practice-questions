@@ -1,64 +1,66 @@
 # #2. Build a Contact Book to store, view, update, and delete contact names and numbers.
 
-
 contact_list = []
+
 def add_contacts():
-    cname = str(input("Enter the name: "))
-    cnum = int(input("Enter the number: "))
+    cname = input("Enter the name: ")
+    cnum = input("Enter the number: ")
     data = {
-        "Name" : cname,
-        "Number" : cnum
+        "Name": cname,
+        "Number": cnum
     }
     contact_list.append(data)
-    # print(contact_list)
-    return contact_list
+    print("Contact added!**")
+
 def view_contact():
-    print("Your Contacts!!!")
+    print("\nYour Contacts:")
     if not contact_list:
         print("No contacts yet!")
     else:
         for i in range(len(contact_list)):
-            print(f"{i+1}.{contact_list[i]}")
+            print(f"{i+1}. {contact_list[i]['Name']} - {contact_list[i]['Number']}")
+
 def update_contact():
-    name = str(input("Enter the name you want to update: "))
-    for contact in contact_list:
-        if contact["Name"].lower() == name.lower():
-            new_num  = input("Enter the new number: ")
-            contact["Number"] = new_num
-            print("Contact updated**")
+    name = input("Enter the name you want to update: ")
+    for i in range(len(contact_list)):
+        if contact_list[i]["Name"].lower() == name.lower():
+            new_num = input("Enter the new number: ")
+            contact_list[i]["Number"] = new_num
+            print("Contact updated!**")
             return
-    print("Contact not found")
+    print("Contact not found!")
+
 def delete_contact():
-    view_contact()
-    name = str(input("Enter the name you want to delete: "))
-    for i,contact in contact_list:
-        if contact["Name"].lower() == name.lower():
-            del  contact_list[i]
-            # contact_list.pop(name)
-            print("Contact removed**")
+    name = input("Enter the name you want to delete: ")
+    for i in range(len(contact_list)):
+        if contact_list[i]["Name"].lower() == name.lower():
+            contact_list.pop(i)
+            print("Contact deleted!**")
             return
+    print("Contact not found!")
 
 def contactBook():
     while True:
-        print("\n1.Add contact")
-        print("2.View contact")
-        print("3.Update contact")
-        print("4.Delete contact")
-        print("5.Exit")
+        print("\nContact Book")
+        print("1. Add contact")
+        print("2. View contacts")
+        print("3. Update contact")
+        print("4. Delete contact")
+        print("5. Exit")
 
-        choice = input("Enter your choice: ")
-        if choice == "1":
+        choice = int(input("Enter your choice: "))
+
+        if choice == 1:
             add_contacts()
-        elif choice == "2":
+        elif choice == 2:
             view_contact()
-        elif choice == "3":
+        elif choice == 3:
             update_contact()
-        elif choice == "4":
+        elif choice == 4:
             delete_contact()
-        elif choice == "5":
-            print("All Done")
+        elif choice == 5:
+            print("Exiting Contact Book. All Done!")
             break
         else:
-            "Invalid Choice"
+            print("Invalid choice! Try again.")
 contactBook()
-
